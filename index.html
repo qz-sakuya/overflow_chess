@@ -1,21 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>My Transcrypt Project</title>
-</head>
 <body>
-    <h1>My Transcrypt Project</h1>
+    <button id="start-game">Start Game</button>
+    <div id="game-area"></div>
 
-    <!-- 引入 Transcrypt 运行时库 -->
-    <script src="__target__/org.transcrypt.__runtime__.pretty.js"></script>
+    <py-script>
+        # 导入 overflow_chess 模块
+        import overflow_chess
 
-    <!-- 引入你的主 JavaScript 文件 -->
-    <script src="__target__/copy.js"></script>
+        # 获取按钮和游戏区域元素
+        from pyscript import Element
+        start_button = Element("start-game")
+        game_area = Element("game-area")
 
-    <script type="text/javascript">
-        // 初始化代码
-        console.log("Transcrypt project loaded.");
-    </script>
+        def on_start_game(*args):
+            # 清空游戏区域
+            game_area.element.innerHTML = ""
+            # 运行游戏
+            overflow_chess.run_game()
+
+        # 绑定点击事件到按钮
+        start_button.element.onclick = on_start_game
+    </py-script>
 </body>
-</html>
