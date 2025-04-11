@@ -2,30 +2,20 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>My Game with Brython</title>
-    <!-- 引入 Brython -->
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/brython@3.9.5/brython.min.js"></script>
+    <title>My Transcrypt Project</title>
 </head>
-<body onload="brython()">
-    <h1>My Game</h1>
+<body>
+    <h1>My Transcrypt Project</h1>
 
-    <!-- 定义一个区域用于显示输出 -->
-    <pre id="console" style="border: 1px solid black; height: 300px; overflow: auto;"></pre>
+    <!-- 引入 Transcrypt 运行时库 -->
+    <script src="__target__/org.transcrypt.__runtime__.pretty.js"></script>
 
-    <!-- 使用 Brython 加载并执行 Python 代码 -->
-    <script type="text/python">
-from browser import document, console
+    <!-- 引入你的主 JavaScript 文件 -->
+    <script src="__target__/copy.js"></script>
 
-# 将标准输出重定向到页面上的预标签
-import sys
-sys.stdout = document["console"].element
-
-# 动态加载外部 Python 文件
-with open("overflow_chess.py", encoding="utf-8") as f:
-    exec(f.read())
-
-# 调用 run_game 函数
-run_game()
+    <script type="text/javascript">
+        // 初始化代码
+        console.log("Transcrypt project loaded.");
     </script>
 </body>
 </html>
